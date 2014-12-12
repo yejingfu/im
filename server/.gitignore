@@ -1,0 +1,5 @@
+deploy/*.progress
+deploy/*/*.tar.gz
+deploy/redis/redis-2.8.13/
+
+

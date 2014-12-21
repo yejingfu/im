@@ -36,6 +36,16 @@ ensure_ubuntu() {
   fi
 }
 
+clean_yum() {
+  YUM_PID=/var/run/yum.pid
+  if [ -f "$YUM_PID" ]; then
+    set -x
+    rm -f YUM_PID
+    killall yum
+    set +x
+  fi
+}
+
 check_run() {
   ps -ef | grep -v 'grep' | grep redis-server
   if [ $? -eq 0 ]; then

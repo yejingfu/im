@@ -193,6 +193,30 @@ build_redis() {
   fi
 }
 
+check_percona() {
+	cd $MYSQL
+	chmod +x setup.sh
+	./setup.sh check
+	if [ $? -eq 0 ]; then
+		cd $CUR_DIR
+	else
+		return 1
+	fi
+}
+
+build_percona() {
+	cd $MYSQL
+	chmod +x setup.sh
+	setup_begin $MYSQL
+	./setup.sh install
+	if [ $? -eq 0 ]; then
+		setup_success $MYSQL
+		cd $CUR_DIR
+	else
+		return 1
+	fi
+}
+
 check_install() {
   local MODULE=$1
   local MODULE_SETUP_BEGIN=$2
@@ -254,7 +278,6 @@ check_all() {
     exit 1
   fi
 
-  return 1
 
   #mysql
   check_module $MYSQL $MYSQL_SETUP_BEGIN $MYSQL_SETUP_SUCCESS
@@ -345,13 +368,11 @@ build_all() {
     exit 1
   fi
 
-  return 1
-
   #mysql 
-  build_module $MYSQL $MYSQL_SETUP_BEGIN $MYSQL_SETUP_SUCCESS
-  if [ $? -eq 1 ]; then
-    exit 1
-  fi
+#  build_module $MYSQL $MYSQL_SETUP_BEGIN $MYSQL_SETUP_SUCCESS
+#  if [ $? -eq 1 ]; then
+#    exit 1
+#  fi
 
   #nginx
   build_module $NGINX $NGINX_SETUP_BEGIN $NGINX_SETUP_SUCCESS

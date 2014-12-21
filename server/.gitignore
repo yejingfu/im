@@ -2,4 +2,18 @@ deploy/*.progress
 deploy/*/*.tar.gz
 deploy/redis/redis-2.8.13/
 
+deploy/
+
+im_web/
+
+im_server/*.tar.gz
+im_server/cpp/run/
+im_server/cpp/src/base/obj/
+im_server/cpp/*.tar.gz
+im_server/cpp/*/*.o
+
+im_server/java/run/
+im_server/java/target/
+im_server/java/*.tar.gz
+
 

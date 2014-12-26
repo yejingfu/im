@@ -17,8 +17,9 @@ do
 	fi  
 	mkdir $port
 	cd $port
-	#cp ../target/mogutalk-business-0.0.1-SNAPSHOT.jar ./
-	#cp ../run.sh ./
-	#sh run.sh $port
-	#cd ../
+	cp ../*.jar ./
+	cp ../run.sh ./
+	sh run.sh $port
+	cd ..
+
 done

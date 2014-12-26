@@ -1,13 +1,10 @@
 *.sublime-project
 *.sublime-workspace
 
-im_web/
-
 android/
 
 deploy/*.progress
 deploy/*/*.tar.gz
-!deploy/im_web/
 
 im_server/*.tar.gz
 im_server/cpp/*.tar.gz

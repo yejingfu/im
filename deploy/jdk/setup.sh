@@ -46,13 +46,11 @@ check_jdk() {
 }
 
 build_jdk() {
-	if [ -f "$JDK.rpm" ]; then
-		rpm -ivh $JDK.rpm
-		javac -version
-	else
-		echo "Error: $JDK.rpm not existed."
-		exit 1
-	fi
+    apt-get install python-software-properties
+    add-apt-repository ppa:webupd8team/java
+    apt-get update
+    apt-get intall oracle-java7-intaller
+
 }
 
 print_help() {

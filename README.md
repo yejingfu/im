@@ -10,6 +10,8 @@ im
 $ sudo apt-get install libssl-dev
 ```
 
+This is used by percona (MySQL)
+
 #### Redis
 ``` bash
 $ sudo apt-add-repository ppa:chris-lea/redis-server

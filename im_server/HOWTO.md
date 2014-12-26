@@ -12,3 +12,10 @@ The middleware component would be packaged and copied to `../deploy/im_server/`.
 
 ### build business component (java based)
 
+``` bash
+$ cd java
+$ ./build.sh [dev | product]
+```
+
+The java based business component would be packaged and copied to `../deploy/im_db_proxy/`.
+

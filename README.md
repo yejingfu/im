@@ -9,6 +9,14 @@ im
 
     # apt-get install libssl-dev
 
+#### Redis
+
+    # apt-add-repository ppa:chris-lea/redis-server
+    # apt-get update
+    # apt-get install redis-server
+    # apt-get purge --auto-remove redis-server  ## remove
+    # service reids-server start|stop|status    ## config: /etc/redis/redis.conf
+
 #### Percona (MySQL)
 
     # apt-key adv --keyserver keys.gnupg.net --recv-keys 1C4CBDCDCD2EFD2A
@@ -38,6 +46,9 @@ im
 
     ## install php5 dev, so that phpize can be used.
     # apt-get install php5-dev
+
+    ## install php5-curl
+    # apt-get install php5-curl
     
     ## let php-cli use the same ini configuration of php-fpm
     # cd /etc/php5/cli
@@ -105,6 +116,10 @@ follow this [page](http://hoarn.blog.51cto.com/1642678/1184441) to setup xdebug.
     # apt-get install maven
     
 #### File server
+
+* install uuid
+
+    sudo apt-get install uuid-dev
 
 * issue 1: conflict on port 8500, please change port to other port like port 8600
 

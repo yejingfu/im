@@ -6,58 +6,67 @@ im
 ### installation
 
 #### OpenSSL (LibSSL)
-
-    # apt-get install libssl-dev
+``` bash
+$ sudo apt-get install libssl-dev
+```
 
 #### Redis
-
-    # apt-add-repository ppa:chris-lea/redis-server
-    # apt-get update
-    # apt-get install redis-server
-    # apt-get purge --auto-remove redis-server  ## remove
-    # service reids-server start|stop|status    ## config: /etc/redis/redis.conf
+``` bash
+$ sudo apt-add-repository ppa:chris-lea/redis-server
+$ sudo apt-get update
+$ sudo apt-get install redis-server
+$ sudo apt-get purge --auto-remove redis-server  ## remove
+$ sudo service reids-server start|stop|status    ## config: /etc/redis/redis.conf
+```
 
 #### Percona (MySQL)
+``` bash
+$ sudo apt-key adv --keyserver keys.gnupg.net --recv-keys 1C4CBDCDCD2EFD2A
 
-    # apt-key adv --keyserver keys.gnupg.net --recv-keys 1C4CBDCDCD2EFD2A
-    ## edit /etc/apt/sources.list by adding the section
+## edit /etc/apt/sources.list by adding the section
     deb http://repo.percona.com/apt trusty main
     deb-src http://repo.percona.com/apt trusty main
-    # apt-get update
-    # apt-get install percona-server-server-5.5 percona-server-client-5.5
 
-    ## check if it is running:
-    $ ps -ef | grep -v 'grep' | grep mysqld
+$ sudo apt-get update
+$ sudo apt-get install percona-server-server-5.5 percona-server-client-5.5
 
-    ## start server
-    # service mysql start
-    ## stop server
-    # service mysql stop
+## check if it is running:
+$ ps -ef | grep -v 'grep' | grep mysqld
 
-    ## workbench -- client 
-    ## install from Ubuntu soteware center: "mysql-workbench"
+ ## start server
+$ sudo service mysql start
+## stop server
+$ sudo service mysql stop
+
+## workbench -- client 
+## install from Ubuntu soteware center: "mysql-workbench"
+```
 
 #### PHP5-FPM
 
-    # apt-get install php5-fpm php5-cli php5-mysql -y
-    
-    ## install json for php
-    # apt-get install php5-json
+Important: please build & install from source code, see the deploy script
 
-    ## install php5 dev, so that phpize can be used.
-    # apt-get install php5-dev
-
-    ## install php5-curl
-    # apt-get install php5-curl
+``` bash
+$ sudo apt-get install php5-fpm php5-cli php5-mysql -y
     
-    ## let php-cli use the same ini configuration of php-fpm
-    # cd /etc/php5/cli
-    # mv php.ini php.ini.org    ## backup
-    # ln -s ../fpm/php.ini
-    ## make sure the php server is listening on right socket (see /etc/php5/fpm/pool.d/www.conf)
+## install json for php
+$ sudo apt-get install php5-json
+
+## install php5 dev, so that phpize can be used.
+$ sudo apt-get install php5-dev
+
+## install php5-curl
+$ sudo apt-get install php5-curl
+    
+## let php-cli use the same ini configuration of php-fpm
+$ cd /etc/php5/cli
+$ sudo mv php.ini php.ini.org    ## backup
+$ sudo ln -s ../fpm/php.ini
+
+## make sure the php server is listening on right socket (see /etc/php5/fpm/pool.d/www.conf)
         listen = /var/run/php-fpm-sock
     
-    ## nginx reverse proxy setting ( see : /etc/ngnix/conf.d/my.conf )
+## nginx reverse proxy setting ( see : /etc/ngnix/conf.d/my.conf )
         location ~ \.php$ {
             try_files $uri =404;
             fastcgi_pass unix:/var/run/php5-fpm.sock;
@@ -74,6 +83,7 @@ im
         <?php
           phpinfo();
         ?>
+```
 
 #### xdebug
 
@@ -103,23 +113,29 @@ follow this [page](http://hoarn.blog.51cto.com/1642678/1184441) to setup xdebug.
 
 #### Java (DB Proxy)
 
-* install java (the easy way)
+- install java (the easy way)
 
-    sudo apt-get install python-software-properties
-    sudo add-apt-repository ppa:webupd8team/java
-    sudo apt-get update
-    sudo apt-get install oracle-java7-installer
+``` bash
+$ sudo apt-get install python-software-properties
+$ sudo add-apt-repository ppa:webupd8team/java
+$ sudo apt-get update
+$ sudo apt-get install oracle-java7-installer
+```
 
-* build java source code by maven
+- build java source code by maven
 
-    ## install maven
-    # apt-get install maven
-    
+``` bash
+## install maven
+$ sudo apt-get install maven
+```
+
 #### File server
 
-* install uuid
+- install uuid
 
+``` bash
     sudo apt-get install uuid-dev
+```
 
-* issue 1: conflict on port 8500, please change port to other port like port 8600
+- issue 1: conflict on port 8500, please change port to other port like port 8600
 

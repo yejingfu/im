@@ -3,7 +3,7 @@
 t=`date +%Y%m%d_%H%M%S`
 #cp src/main/bin/* ./
 ALLPROTS=($@)
-echo '@ ' ($@)
+#echo '@ ' ($@)
 for port in ${ALLPROTS[@]}
 do
 	echo 'port: ' ${port}
@@ -18,6 +18,7 @@ do
 	mkdir $port
 	cd $port
 	cp ../*.jar ./
+	cp ../*.properties ./
 	cp ../run.sh ./
 	sh run.sh $port
 	cd ..

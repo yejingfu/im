@@ -3,7 +3,8 @@
 # setup db_proxy
 
 INSTALL_DIR=.
-DBPROXY=ttjavaserverPack
+#DBPROXY=ttjavaserverPack
+DBPROXY=businesspack
 LISTEN_PORT=11000
 REDIS_CONF=cache-online.properties
 MYSQL_CONF=db-online.properties

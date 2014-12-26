@@ -36,6 +36,8 @@ build() {
     cp file_server/file_server ../run/file_server/
     cp msfs/msfs ../run/msfs/
     cp tools/daeml ../run/
+    cp restart.sh ../run/
+    cp run.sh ../run/
 
     build_version=im-server-$1
 	build_name=$build_version.tar.gz
@@ -64,12 +66,15 @@ build() {
     cp ../run/run.sh    ../$build_version/
 
     cd ../
-	tar zcvf $build_name $build_version/daeml $build_version/restart.sh $build_version/run.sh \
+	tar zcvf $build_name $build_version/daeml  $build_version/run.sh $build_version/restart.sh \
                          $build_version/login_server/login_server $build_version/login_server/loginserver.conf \
                          $build_version/route_server/route_server $build_version/route_server/routeserver.conf \
                          $build_version/msg_server/msg_server $build_version/msg_server/msgserver.conf\
                          $build_version/file_server/file_server $build_version/file_server/fileserver.conf\
                          $build_version/msfs/msfs $build_version/msfs/msfs.conf
+
+    cp $build_name ../../deploy/im_server/
+
     rm -rf $build_version
 }
 

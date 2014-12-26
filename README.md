@@ -13,6 +13,9 @@ $ sudo apt-get install libssl-dev
 This is used by percona (MySQL)
 
 #### Redis
+
+Note: probobly you need to compile & install from source code, see the deploy script: `deploy/redis/setup.sh`
+
 ``` bash
 $ sudo apt-add-repository ppa:chris-lea/redis-server
 $ sudo apt-get update
@@ -46,7 +49,7 @@ $ sudo service mysql stop
 
 #### PHP5-FPM
 
-Important: please build & install from source code, see the deploy script
+Important: please build & install from source code, see the deploy script `deploy/nginx_php/php/setup.sh`.
 
 ``` bash
 $ sudo apt-get install php5-fpm php5-cli php5-mysql -y

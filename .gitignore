@@ -1,8 +1,6 @@
 *.sublime-project
 *.sublime-workspace
 
-android/
-
 deploy/*.progress
 deploy/*/*.tar.gz
 

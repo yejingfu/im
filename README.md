@@ -129,9 +129,24 @@ $ sudo apt-get install oracle-java7-installer
 
 - build java source code by maven
 
+- install maven
+
 ``` bash
-## install maven
 $ sudo apt-get install maven
+```
+
+Set proxy settings for maven
+
+```bash
+$ vi /etc/maven/settings.xml
+     <proxy>
+       <id>optional</id>
+       <active>true</active>
+       <protocol>http</protocol>
+       <host>proxy-shz.intel.com</host>
+       <port>911</port>                                                                                            
+       <nonProxyHosts>local.net|some.host.com</nonProxyHosts>
+    </proxy>
 ```
 
 #### File server

@@ -144,7 +144,7 @@ $ vi /etc/maven/settings.xml
        <active>true</active>
        <protocol>http</protocol>
        <host>proxy-shz.intel.com</host>
-       <port>911</port>                                                                                            
+       <port>911</port>
        <nonProxyHosts>local.net|some.host.com</nonProxyHosts>
     </proxy>
 ```
